@@ -5,15 +5,18 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
 ../src/AllTests.cpp \
-../src/SodukuTests.cpp 
+../src/SodukuTests.cpp \
+../src/UsefulFunctions.cpp 
 
 OBJS += \
 ./src/AllTests.o \
-./src/SodukuTests.o 
+./src/SodukuTests.o \
+./src/UsefulFunctions.o 
 
 CPP_DEPS += \
 ./src/AllTests.d \
-./src/SodukuTests.d 
+./src/SodukuTests.d \
+./src/UsefulFunctions.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
