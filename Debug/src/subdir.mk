@@ -4,13 +4,16 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
-../src/Maggie.cpp 
+../src/Maggie.cpp \
+../src/UsefulFunctions.cpp 
 
 OBJS += \
-./src/Maggie.o 
+./src/Maggie.o \
+./src/UsefulFunctions.o 
 
 CPP_DEPS += \
-./src/Maggie.d 
+./src/Maggie.d \
+./src/UsefulFunctions.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes

@@ -5,9 +5,11 @@
  *      Author: dan
  */
 
+#include "UsefulFunctions.h"
 
-bool checkSodukuPuzzle(int *pPuzzle)
+bool checkSodukuPuzzle(sodpuzzle *pPuzzle)
 {
+	return true;
 	// go through each column and check if correct
 	// getArray(BOX, 0)
 	// ch
@@ -15,6 +17,32 @@ bool checkSodukuPuzzle(int *pPuzzle)
 	// go through each box and check if correct
 }
 
+int anAnswerVector[9];
+
+int * getSodukuVector(enum elements_t enRowColBox, int nWhich, sodpuzzle *pPuzzle)
+{
+	int i;
+
+	switch (enRowColBox)
+	{
+		case ROW:
+			for(i=0; i<9; i++)
+			{
+				anAnswerVector[i] = (*pPuzzle)[nWhich][i];
+			}
+			break;
+		case COL:
+			break;
+		case BOX:
+			break;
+
+	}
+	return &anAnswerVector[0];
+}
+
+
+// This function will check any 9 element int array to make sure that none of the
+// elements are the same which is a requirement of a Soduku Puzzle.
 bool checkSodukuArray(int *pArray)
 {
 	// Check the array to see if any values repeat.
