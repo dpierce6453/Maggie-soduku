@@ -13,9 +13,10 @@
 enum elements_t {ROW, COL, BOX};
 
 typedef int sodpuzzle[9][9];
+typedef int sodarray[9];
 
-bool checkSodukuArray(int *pArray);
-int * getSodukuVector(enum elements_t enRowColBox, int nWhich, sodpuzzle *pPuzzle);
+bool checkSodukuArray(sodarray *paArray);
+sodarray * getSodukuVector(enum elements_t enRowColBox, unsigned int nWhich, sodpuzzle *pPuzzle);
 
 
 

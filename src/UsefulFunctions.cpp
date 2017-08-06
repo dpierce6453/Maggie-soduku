@@ -17,11 +17,13 @@ bool checkSodukuPuzzle(sodpuzzle *pPuzzle)
 	// go through each box and check if correct
 }
 
-int anAnswerVector[9];
+sodarray anAnswerVector;
 
-int * getSodukuVector(enum elements_t enRowColBox, int nWhich, sodpuzzle *pPuzzle)
+sodarray * getSodukuVector(enum elements_t enRowColBox, unsigned int nWhich, sodpuzzle *pPuzzle)
 {
 	int i;
+
+	if(nWhich > 9) return 0;
 
 	switch (enRowColBox)
 	{
@@ -32,18 +34,23 @@ int * getSodukuVector(enum elements_t enRowColBox, int nWhich, sodpuzzle *pPuzzl
 			}
 			break;
 		case COL:
+			for(i=0; i<9; i++)
+			{
+				anAnswerVector[i] = (*pPuzzle)[i][nWhich];
+			}
 			break;
 		case BOX:
+			return 0;
 			break;
 
 	}
-	return &anAnswerVector[0];
+	return &anAnswerVector;
 }
 
 
 // This function will check any 9 element int array to make sure that none of the
-// elements are the same which is a requirement of a Soduku Puzzle.
-bool checkSodukuArray(int *pArray)
+// elements are the same which is a requirement of a Soduku Puzzle.`
+bool checkSodukuArray(sodarray *paArray)
 {
 	// Check the array to see if any values repeat.
 	int i, j, nNumberOfOccurrences;
@@ -52,7 +59,7 @@ bool checkSodukuArray(int *pArray)
 		nNumberOfOccurrences = 0;
 		for(j=0; j < 9; j++)
 		{
-			if (pArray[j] == i)
+			if ((*paArray)[j] == i)
 			{
 				nNumberOfOccurrences++;
 				if(nNumberOfOccurrences > 1) return false;
